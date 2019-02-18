@@ -2,18 +2,12 @@
 
 import argparse
 
-class pftool(object):
+class pftool:
     """PFTool
     コマンドラインから各種便利なCUIベースのツール郡です。
     これはそのランチャーとしての役割を持ちます。
     
-    Arguments:
-        object {object} -- 規定クラス
     """
-
-    name = "PFTool"
-    version = "0.01"
-    about = ""
 
     def __init__(self, args=None):
         """コンストラクタ
@@ -21,20 +15,25 @@ class pftool(object):
         Keyword Arguments:
             args {ArgumentParser} -- コマンドラインパラメータ用のパーサ (default: {None})
         """
-        print("init!")
-
-    def version(self):
-        dic = {
+        self.name = "PFTool"
+        self.version = "0.01"
+        self.about = ""
+        print("init")
+    
+    def get_version(self):
+        """バージョン表示
+        """
+        dict = {
             "name":self.name,
             "version":self.version,
             "about":self.about
         }
-        print("{name} {version}\n{about}".format(dic))
+        return "{0[name]} {0[version]}\n{0[about]}".format(dict)
+        
 
 # メイン起動
 if __name__ == '__main__':
 
-
-
     obj = pftool()
-    obj.version()
+    print(obj.get_version())
+
